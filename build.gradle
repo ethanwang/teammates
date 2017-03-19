@@ -284,10 +284,15 @@ task enhancerRun << {
     }
 }
 
+task buildJs(type: Exec) {
+    commandLine "npm", "run", "build"
+}
+
 enhancerRun.dependsOn appengineDownloadSdk
 enhancerRun.dependsOn project.classes
 enhancerRun.shouldRunAfter project.testClasses
 war.dependsOn enhancerRun
+war.dependsOn buildJs
 
 // STATIC ANALYSIS TASKS
 

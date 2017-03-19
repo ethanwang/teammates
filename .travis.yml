@@ -42,7 +42,6 @@ before_script:
 
 install: true
 script:
-  - npm run build
   - ./gradlew appengineRun ciTests
 
 after_failure:
